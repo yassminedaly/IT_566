@@ -1,6 +1,6 @@
 """Defines the MySQLPersistenceWrapper class."""
 
-from application_name.application_base import ApplicationBase
+from gallery.application_base import ApplicationBase
 from mysql import connector
 from mysql.connector.pooling import (MySQLConnectionPool)
 import inspect
