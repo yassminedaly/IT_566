@@ -39,12 +39,12 @@ CREATE TABLE IF NOT EXISTS `Gallery`.`Photo` (
   CONSTRAINT `fk_photo_photographer_idPhotographer`
     FOREIGN KEY (`idPhotographer`)
     REFERENCES `Gallery`.`Photographer` (`idPhotographer`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_photo_album_idAlbum`
     FOREIGN KEY (`idAlbum`)
     REFERENCES `Gallery`.`Album` (`idAlbum`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -68,6 +68,6 @@ CREATE TABLE IF NOT EXISTS `Gallery`.`AlbumPhotographer_xref` (
   CONSTRAINT `fk_albumphotographer_album_idAlbum`
     FOREIGN KEY (`idAlbum`)
     REFERENCES `Gallery`.`Album` (`idAlbum`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

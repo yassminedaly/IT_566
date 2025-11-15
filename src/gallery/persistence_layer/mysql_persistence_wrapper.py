@@ -36,15 +36,32 @@ class MySQLPersistenceWrapper(ApplicationBase):
 
 		# SQL String Constants
 
+		self.GET_ALL_PHOTOGRAPHERS = f"SELECT idPhotographer, PhotographerName, Email FROM Photographer;"
 
+		self.GET_ALL_ALBUMS = f"SELECT idAlbum, AlbumName, CreationDate FROM Album;"
 
+		self.GET_ALL_PHOTOS = f"SELECT p.idPhoto, p.PhotoDate, p.idPhotographer, ph.PhotographerName, p.idAlbum, a.AlbumName FROM Photo p JOIN Photographer ph ON p.idPhotographer = ph.idPhotographer JOIN Album a ON p.idAlbum = a.idAlbum;"
+
+		self.ADD_PHOTOGRAPHER = f"INSERT INTO Photographer (PhotographerName, Email) VALUES (%s, %s);"
+
+		self.ADD_ALBUM = f"INSERT INTO Album (AlbumName, CreationDate) VALUES (%s, %s);"
+
+		self.ADD_PHOTO = f"INSERT INTO Photo (PhotoDate, idPhotographer, idAlbum) VALUES (%s, %s, %s);"
+
+		self.DELETE_PHOTOGRAPHER = f"DELETE FROM Photographer WHERE idPhotographer = %s;"
+
+		self.DELETE_ALBUM = f"DELETE FROM Album WHERE idAlbum = %s;"
+
+		self.DELETE_PHOTO = f"DELETE FROM Photo WHERE idPhoto = %s;"
+
+		self.CHANGE_PHOTOGRAPHER_EMAIL = f"UPDATE Photographer SET Email = %s WHERE idPhotographer = %s;"
+
+		self.CHANGE_ALBUM_NAME = f"UPDATE Album SET AlbumName = %s WHERE idAlbum = %s;"
+
+		self.CHANGE_PHOTO_ALBUM = f"UPDATE Photo SET idAlbum = %s WHERE idPhoto = %s;"
 
 
 	# MySQLPersistenceWrapper Methods
-
-
-
-
 
 		##### Private Utility Methods #####
 
